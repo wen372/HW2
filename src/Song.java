@@ -1,4 +1,4 @@
-class Song {
+public class Song {
     private String track;
     private Song next;
     private Song last;
