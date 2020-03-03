@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.LinkedHashSet;
 
 /* Storing one week of data in a queue */
 public class MyQueue extends LinkedList {
@@ -44,6 +45,7 @@ public class MyQueue extends LinkedList {
                 arr.add(songName);
             }
             arr.sort(String.CASE_INSENSITIVE_ORDER);
+            removeDuplicates(arr);
             for(String names : arr){
                 add(names);
             }
@@ -51,6 +53,13 @@ public class MyQueue extends LinkedList {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+    //removes duplicate names by using hashset
+    public static void removeDuplicates(ArrayList<String> arr){
+      LinkedHashSet<String> set = new LinkedHashSet<>(arr);
+      arr.clear();
+      arr.addAll(set);
     }
 
 
@@ -92,7 +101,3 @@ public class MyQueue extends LinkedList {
 
     }
 }
-
-
-
-
