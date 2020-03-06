@@ -1,18 +1,19 @@
-
-
 import java.io.File;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class HW2 {
 
 
     public static void main(String[] args) {
+
         ArrayList<String> fileNames = readFileNames();
         int numberOfCSV = countCSV(fileNames);
         System.out.println(numberOfCSV + " Files successfully loaded");
 
-        //creates MyQueue array with 12 spots(for a year quarter)
+        //creates MyQueue array with 12 spots(for a year quarter( 12 weeks)
         MyQueue[] allWeeks = new MyQueue[12];
         Iterator files = fileNames.iterator();
         int count = 0;
@@ -24,7 +25,7 @@ public class HW2 {
         }
 
 
-        //merges all the MyQueue objects into one
+        //merges all the MyQueue objects "weeks" into one
         MyQueue combined = MyQueue.mergingFunction(allWeeks[0], allWeeks[1]);
         for(int i=2; i<12; i++) {
             combined = MyQueue.mergingFunction(combined, allWeeks[i]);
@@ -36,26 +37,26 @@ public class HW2 {
             playlist.addSong(new Song(combined.poll().toString()));
         }
 
-        /*
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.lastListened());
-        System.out.println(playlist.lastListened());
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.lastListened());
-        System.out.println(playlist.lastListened());
-        System.out.println(playlist.listenToSong());
-        System.out.println(playlist.lastListened());
-        System.out.println(playlist.lastListened());
-         */
+        System.out.println();
+        System.out.println("Listening to PlayList");
 
+        Scanner in = new Scanner(System.in);
+        String input;
+        do{
+            System.out.println("Press 1 to play next song \nPress 2 to get name last song played \nPress q to quit");
+            input = in.next();
+            switch(input){
+                case "1":
+                    System.out.println("Now Playing: " + playlist.listenToSong());
+                    System.out.println();
+                    break;
+                case "2":
+                    System.out.println("Last Song: " + playlist.lastListened());
+                    System.out.println();
+                    break;
+            }
 
-        while(!(playlist.isEmpty())){
-            System.out.println(playlist.listenToSong());
-        }
-
+        }while(!(input.equals("q")));
 
 
     }

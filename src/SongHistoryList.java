@@ -1,22 +1,22 @@
 public class SongHistoryList {
-    private Song first;
-    public void SongHistoryList(){
+    private Song top;
+    public SongHistoryList(){
         // constructor for creating a new list
     }
     public boolean isEmpty(){
-        return first == null;
+        return top == null;
     }
     public void addSong(Song song){
         if(isEmpty()){
-            first = song;
+            top = song;
         }
         else{
-            song.setNext(first);
-            first = song;
+            song.setNext(top);
+            top = song;
         }
     }
     public Song lastListened(){
         // retrieves the next song to listen to
-        return first;
+        return top;
     }
 }
