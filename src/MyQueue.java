@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.LinkedHashSet;
 
 /* Storing one week of data in a queue */
-public class MyQueue extends LinkedList {
+public class MyQueue extends LinkedList<String> {
 
     // add a no param constructor
     public MyQueue (){
