@@ -11,7 +11,7 @@ public class HW2 {
 
         ArrayList<String> fileNames = readFileNames();
         int numberOfCSV = countCSV(fileNames);
-        System.out.println(numberOfCSV + " Files successfully loaded");
+        System.out.println(numberOfCSV + " Files successfully loaded\n");
 
         //creates MyQueue array with 12 spots(for a year quarter( 12 weeks)
         MyQueue[] allWeeks = new MyQueue[12];
@@ -37,8 +37,8 @@ public class HW2 {
             playlist.addSong(new Song(combined.poll().toString()));
         }
 
-        System.out.println();
-        System.out.println("Listening to PlayList");
+        System.out.println("Listening to PlayList\n");
+
 
         Scanner in = new Scanner(System.in);
         String input;
