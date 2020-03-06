@@ -26,8 +26,8 @@ public class HW2 {
 
 
         //merges all the MyQueue objects "weeks" into one
-        MyQueue combined = MyQueue.mergingFunction(allWeeks[0], allWeeks[1]);
-        for(int i=2; i<12; i++) {
+        MyQueue combined = new MyQueue();
+        for(int i=0; i<count; i++) {
             combined = MyQueue.mergingFunction(combined, allWeeks[i]);
         }
 
@@ -100,4 +100,3 @@ public class HW2 {
         return count;
     }
 }
-
